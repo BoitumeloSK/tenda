@@ -1,4 +1,4 @@
-const { Request } = require("../models");
+const { Request, Reply } = require("../models");
 const JWT = require("jsonwebtoken");
 require("dotenv").config();
 
@@ -14,7 +14,12 @@ function getAllRequests(req, res) {
 
 function getRequest(req, res) {
 	const { id } = req.params;
-	Request.findAll({ where: { id } })
+	Request.findAll(
+		{
+			include: [{ model: Comment }, { include: [{ model: Reply }] }],
+		},
+		{ where: { id } }
+	)
 		.then((data) => {
 			if (data.length == 0) {
 				return res

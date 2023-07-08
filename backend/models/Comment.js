@@ -21,7 +21,7 @@ const Comment = sequelize.define(
 			},
 			allowNull: false,
 		},
-		body: {
+		content: {
 			type: DataTypes.STRING,
 		},
 	},

@@ -12,14 +12,6 @@ const Reply = sequelize.define(
 			},
 			allowNull: false,
 		},
-		RequestId: {
-			type: DataTypes.INTEGER,
-			references: {
-				model: Request,
-				key: "id",
-			},
-			allowNull: false,
-		},
 		CommentId: {
 			type: DataTypes.INTEGER,
 			references: {
@@ -28,7 +20,7 @@ const Reply = sequelize.define(
 			},
 			allowNull: false,
 		},
-		body: {
+		content: {
 			type: DataTypes.STRING,
 		},
 	},

@@ -12,9 +12,6 @@ User.hasMany(Comment, { foreignKey: "UserId" });
 Comment.belongsTo(Request, { foreignKey: "RequestId" });
 Request.hasMany(Comment, { foreignKey: "RequestId" });
 
-Reply.belongsTo(Request, { foreignKey: "RequestId" });
-Request.hasMany(Reply, { foreignKey: "RequestId" });
-
 Reply.belongsTo(User, { foreignKey: "UserId" });
 User.hasMany(Reply, { foreignKey: "UserId" });
 
