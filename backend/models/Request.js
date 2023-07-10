@@ -21,8 +21,14 @@ const Request = sequelize.define(
 		image: {
 			type: DataTypes.STRING,
 		},
+		location: {
+			type: DataTypes.STRING,
+		},
 		price: {
 			type: DataTypes.DOUBLE(10, 2),
+		},
+		serviceDate: {
+			type: DataTypes.DATEONLY,
 		},
 		approved: {
 			type: DataTypes.BOOLEAN,
