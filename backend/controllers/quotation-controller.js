@@ -4,8 +4,8 @@ require("dotenv").config();
 
 //For user who quotations are sent to
 function getRequestQuotations(req, res) {
-	const { id } = req.params;
-	Request.findAll({ where: { id: requestId } })
+	const { requestId } = req.params;
+	Request.findAll({ where: { id } })
 		.then((data) => {
 			const { userId, role } = JWT.verify(
 				req.cookies.access_token,
@@ -58,7 +58,7 @@ function getUserQuotations(req, res) {
 				req.cookies.access_token,
 				process.env.SECRET
 			);
-			if (userId != id || role != "admin") {
+			if (userId != id) {
 				return res.status(400).json({
 					success: false,
 					error: "Not authorised to view user quotations",
