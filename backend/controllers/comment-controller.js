@@ -1,9 +1,9 @@
-const { Comment } = require("../models");
+const { Comment, Request } = require("../models");
 require("dotenv").config();
 function addComment(req, res) {
 	const { id } = req.params;
 	const { content } = req.body;
-	Comment.findAll({ where: { RequestId: id } }).then((data) => {
+	Request.findAll({ where: { id } }).then((data) => {
 		if (data.length == 0) {
 			return res
 				.status(400)

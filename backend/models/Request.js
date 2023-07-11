@@ -30,7 +30,11 @@ const Request = sequelize.define(
 		serviceDate: {
 			type: DataTypes.DATEONLY,
 		},
-		approved: {
+		visible: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
+		},
+		serviceComplete: {
 			type: DataTypes.BOOLEAN,
 			defaultValue: false,
 		},
