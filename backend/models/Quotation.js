@@ -53,10 +53,6 @@ const Quotation = sequelize.define(
 			type: DataTypes.BOOLEAN,
 			defaultValue: false,
 		},
-		serviceComplete: {
-			type: DataTypes.BOOLEAN,
-			defaultValue: false,
-		},
 	},
 	{
 		freezeTableName: true,

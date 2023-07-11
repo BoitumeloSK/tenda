@@ -1,4 +1,4 @@
-const { Request, Reply } = require("../models");
+const { Request, Reply, Quotation } = require("../models");
 const JWT = require("jsonwebtoken");
 require("dotenv").config();
 
@@ -33,13 +33,13 @@ function getRequest(req, res) {
 		});
 }
 
-function getApprovedRequests(req, res) {
-	Request.findAll({ where: { approved: false } })
+function getVisibleRequests(req, res) {
+	Request.findAll({ where: { visible: true } })
 		.then((data) => {
 			if (data.length == 0) {
 				return res
 					.status(400)
-					.json({ success: false, error: "No approved requests found" });
+					.json({ success: false, error: "No requests found" });
 			}
 			return res.status(200).json({ success: true, data: data });
 		})
@@ -89,6 +89,37 @@ function createRequest(req, res) {
 			visible,
 			UserId: userId,
 		})
+			.then((data) => {
+				return res.status(200).json({ success: true, data: data });
+			})
+			.catch((error) => {
+				return res.status(400).json({ success: false, error: error });
+			});
+	});
+}
+
+function completeService(req, res) {
+	const { id } = req.params;
+	const { serviceComplete } = req.body;
+	const { userId } = JWT.verify(req.cookies.access_token, process.env.SECRET);
+	Quotation.findAll({ where: { id } }).then((data) => {
+		if (data.length == 0) {
+			return res
+				.status(400)
+				.json({ success: false, error: "Quotation not found" });
+		}
+		if (userId != data[0].UserId) {
+			return res.status(400).json({
+				success: false,
+				error: "Not authorised to access service completion aciton.",
+			});
+		}
+		if (data[0].approved == false) {
+			return res
+				.status(400)
+				.json({ success: false, error: "Quotation not approved" });
+		}
+		Request.update({ serviceComplete }, { where: { id: data[0].RequestId } })
 			.then((data) => {
 				return res.status(200).json({ success: true, data: data });
 			})
@@ -181,10 +212,11 @@ function deleteRequest(req, res) {
 
 module.exports = {
 	getAllRequests,
-	getApprovedRequests,
+	getVisibleRequests,
 	getRequest,
 	getUserRequests,
 	createRequest,
+	completeService,
 	updateRequest,
 	deleteRequest,
 };

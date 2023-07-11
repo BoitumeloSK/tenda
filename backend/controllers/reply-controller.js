@@ -1,9 +1,9 @@
-const { Reply } = require("../models");
+const { Reply, Comment } = require("../models");
 require("dotenv").config();
 function addReply(req, res) {
 	const { id } = req.params;
 	const { content } = req.body;
-	Reply.findAll({ where: { Comment: id } }).then((data) => {
+	Comment.findAll({ where: { id } }).then((data) => {
 		if (data.length == 0) {
 			return res
 				.status(400)

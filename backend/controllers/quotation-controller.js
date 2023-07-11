@@ -137,36 +137,6 @@ function approveQuotation(req, res) {
 	});
 }
 
-function completeService(req, res) {
-	const { id } = req.params;
-	const { serviceComplete } = req.body;
-	const { userId } = JWT.verify(req.cookies.access_token, process.env.SECRET);
-	Quotation.findAll({ where: { id } }).then((data) => {
-		if (data.length == 0) {
-			return res
-				.status(400)
-				.json({ success: false, error: "Quotation not found" });
-		}
-		if (userId != data[0].UserId) {
-			return res.status(400).json({
-				success: false,
-				error: "Not authorised to access service completion aciton.",
-			});
-		}
-		if (data[0].approved == false) {
-			return res
-				.status(400)
-				.json({ success: false, error: "Quotation not approved" });
-		}
-		Quotation.update({ serviceComplete }, { where: { id } })
-			.then((data) => {
-				return res.status(200).json({ success: true, data: data });
-			})
-			.catch((error) => {
-				return res.status(400).json({ success: false, error: error });
-			});
-	});
-}
 //For service provider
 function deleteQuotation(req, res) {
 	const { id } = req.params;
@@ -206,6 +176,5 @@ module.exports = {
 	getUserQuotations,
 	createQuotation,
 	approveQuotation,
-	completeService,
 	deleteQuotation,
 };
