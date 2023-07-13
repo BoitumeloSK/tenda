@@ -40,8 +40,8 @@ export default function Services() {
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <HomeIcon sx={{ mr: 2 }} fontSize="medium"/>
-          <Typography variant="h6" color="inherit" noWrap>
+          <HomeIcon sx={{ mr: 3 }} fontSize="medium"/>
+          <Typography variant="h6" color="default" noWrap>
             Procurelink Services
           </Typography>
         </Toolbar>
