@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/config");
-const User = require("./User");
-const Request = require("./Request");
+const User = require("./User.js");
+const Request = require("./Request.js");
 const Quotation = sequelize.define(
 	"Quotation",
 	{
