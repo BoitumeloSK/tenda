@@ -14,8 +14,9 @@ import GlobalStyles from '@mui/material/GlobalStyles';
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import {Link} from "react-router-dom";
+import {Link as Routerlink} from "react-router-dom";
 import Container from '@mui/material/Container';
+import Link from '@mui/material/Link';
 
 const defaultTheme = createTheme();
 
@@ -23,9 +24,9 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" to="/">
+      <Routerlink color="inherit" to="/">
         UbuntuTech
-      </Link>{' '}
+      </Routerlink>{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -57,7 +58,7 @@ const footers = [
   },
 ];
 
-export default function Booking() {
+export default function Bookings() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
@@ -69,8 +70,10 @@ export default function Booking() {
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       >
         <Toolbar sx={{ flexWrap: 'wrap' }}>
-          <Typography variant="h6" color="inherit" href="/" noWrap sx={{ flexGrow: 1 }}>
-            ProcureLink
+          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
+          <Button href="/" variant="text" color="inherit" sx={{ my: 1, mx: 2.5 }}>
+            Procurelink
+          </Button>
           </Typography>
           <nav>
             <Link
@@ -120,7 +123,7 @@ export default function Booking() {
             </Link>
             
           </nav>
-          <Button to="/login" variant="contained" sx={{ my: 1, mx: 2.5 }}>
+          <Button href="/login" variant="contained" sx={{ my: 1, mx: 2.5 }}>
             Login
           </Button>
         </Toolbar>
@@ -239,12 +242,10 @@ export default function Booking() {
         <TreeItem nodeId="6" label="Financial services" />
         <TreeItem nodeId="7" label="IT services" />
         <TreeItem nodeId="8" label="Operational services" />
-        <TreeItem nodeId="9" label="Marketing services" />
       </TreeItem>
       <TreeItem nodeId="10" label="Car Services">
         <TreeItem nodeId="11" label="Mechanic services" />
-        <TreeItem nodeId="12" label="Tyre services" />
-        <TreeItem nodeId="13" label="Towing services" />
+        <TreeItem nodeId="12" label="Towing services" />
       </TreeItem>
     </TreeView>
     <Grid item xs={12} sm={6}>

@@ -4,6 +4,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import {Link} from "react-router-dom";
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 
 const defaultTheme = createTheme();
@@ -21,8 +24,13 @@ export default function Home() {
           sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
         >
           <Toolbar sx={{ flexWrap: 'wrap' }}>
-            <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
-              ProcureLink
+          <Stack direction="row" spacing={2}>
+            <Avatar alt="logo" src="/logo/Plogo.jpg" />
+           </Stack>
+            <Typography variant="h6"  noWrap sx={{ flexGrow: 1 }}>
+            <Button href="/" variant="text" color="inherit" sx={{ my: 1, mx: 2.5 }}>
+            Procurelink
+          </Button>
             </Typography>
             <nav>
               <Link
@@ -77,21 +85,7 @@ export default function Home() {
             </Button>
           </Toolbar>
         </AppBar>
-        {/* Hero unit */}
-        <Container disableGutters maxWidth="sm" component="main" sx={{ pt:8, pb: 12 }}>
-          <Typography
-            component="h1"
-            variant="h4"
-            align="center"
-            color="text.primary"
-            gutterBottom
-          >
-            Welcome to ProcureLink 
-          </Typography>
-          <Typography variant="h5" align="center" color="text.secondary" component="p">
-          The leading platform for streamlined public procurement. Connect with service providers, discover lucrative contracts, and propel your business forward. 
-          </Typography>
-        </Container>
+        
      </ThemeProvider>
     )
 }

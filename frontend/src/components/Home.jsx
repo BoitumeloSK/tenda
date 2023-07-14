@@ -20,6 +20,8 @@ import MuiGrid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import Chip from '@mui/material/Chip';
 import {Link as Routerlink} from "react-router-dom";
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
 
 
 function Copyright(props) {
@@ -41,7 +43,6 @@ const tiers = [
     description: ['ProcureLink is a revolutionary app that connects users with a wide range of services and simplifies the process of booking and managing those services. Whether you need professional assistance or want to explore new experiences, ProcureLink has got you covered.',
       ],
     buttonText: 'Browse Services',
-    buttonLink: '/Services',
     buttonVariant: 'outlined',
   },
   
@@ -97,7 +98,7 @@ const footers = [
   },
 ];
 
-// TODO remove, this demo shouldn't need to reset the theme.
+
 const defaultTheme = createTheme();
 
 export default function Home() {
@@ -112,8 +113,13 @@ export default function Home() {
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       >
         <Toolbar sx={{ flexWrap: 'wrap' }}>
-          <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
-            ProcureLink
+          <Stack direction="row" spacing={2}>
+            <Avatar alt="Plogo" src="./Plogo.png" />
+          </Stack>
+          <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
+          <Button href="/" variant="text" color="inherit" sx={{ my: 1, mx: 2.5 }}>
+            Procurelink
+          </Button>
           </Typography>
           <nav>
             <Link
@@ -163,7 +169,7 @@ export default function Home() {
             </Link>
             
           </nav>
-          <Button to="/login" variant="contained" sx={{ my: 1, mx: 2.5 }}>
+          <Button href="/login" variant="contained" sx={{ my: 1, mx: 2.5 }}>
             Login
           </Button>
         </Toolbar>
@@ -187,7 +193,7 @@ export default function Home() {
       <Container maxWidth="lg" component="main">
         <Grid container spacing={5} alignItems="flex-end">
           {tiers.map((tier) => (
-            // Enterprise card is full width at sm breakpoint
+            // About ProcureLink card is full width at sm breakpoint
             
             
               <Card sx={{ maxWidth: 2000 }}>
@@ -230,7 +236,7 @@ export default function Home() {
                   </ul>
                 </CardContent>
                 <CardActions>
-                  <Button fullWidth variant={tier.buttonVariant}>
+                  <Button fullWidth variant={tier.buttonVariant} href='/services'>
                     {tier.buttonText}
                   </Button>
                 </CardActions>
@@ -238,11 +244,18 @@ export default function Home() {
           ))}
         </Grid>
       </Container> 
-      <Box sx={{ height: '4rem' }} />
 
-      <Typography variant="h4" gutterBottom>
+      <Box sx={{ height: '7rem' }} />
+
+      <Container maxWidth="lg" disableGutters component="main" >
+      <Typography component="h1"
+          variant="h4"
+          align="center"
+          color="text.primary"
+          gutterBottom >
          How ProcureLink works
       </Typography>
+      <Box sx={{ height: '2rem' }} />
       <Grid2 container>
       <Divider orientation="vertical" flexItem>
         1.Sign up
@@ -275,14 +288,18 @@ export default function Home() {
         <p>Have a seamless and enjoyable service experience.</p>
       </Grid2>
     </Grid2>
+    </Container>
     
     <Box sx={{ height: '4rem' }} />
 
     <Root>
+    <Container maxWidth="lg" disableGutters component="main" >
+    <Box sx={{ height: '4rem' }} />
       <Divider>
         <Chip label="More about Procurelink" />
       </Divider>
       {content}
+      </Container>
     </Root>
       {/* Footer */}
       <Container
