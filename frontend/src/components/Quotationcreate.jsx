@@ -148,9 +148,9 @@ export default function Quotationcreate() {
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="firstName"
-            name="firstName"
-            label="First name"
+            id="fromWhom"
+            name="fromWhom"
+            label="From Whom"
             fullWidth
             autoComplete="given-name"
             variant="outlined"
@@ -160,31 +160,29 @@ export default function Quotationcreate() {
          <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="firstName"
-            name="firstName"
-            label="First name"
+            id="rate"
+            name="rate"
+            label="Price of service"
             fullWidth
-            autoComplete="given-name"
             variant="outlined"
           />
          </Grid>
-         <Grid item xs={12} sm={6}>
+         <Grid item xs={12} sm={6} >
           <TextField
             required
-            id="firstName"
-            name="firstName"
-            label="First name"
+            id="description"
+            name="description"
+            label="Description of service required"
             fullWidth
-            autoComplete="given-name"
+            autoComplete="description"
             variant="outlined"
+            multiline rows={6}
           />
-         </Grid>
+        </Grid>
 
-         <Box sx={{ height: '10rem' }} />
+         <Box sx={{ height: '14rem' }} />
 
     </Grid>
-
-    
 
     <Stack spacing={2} direction="row">
       <Button variant="outlined" href="/">back</Button>
