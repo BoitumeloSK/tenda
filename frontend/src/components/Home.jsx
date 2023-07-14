@@ -134,7 +134,7 @@ export default function Home() {
             <Link
               variant="button"
               color="text.primary"
-              href="./Bookings"
+              href="./Servicerequest"
               underline='hover'
               sx={{ my: 1, mx: 1.5 }}
             >
@@ -143,7 +143,7 @@ export default function Home() {
             <Link
               variant="button"
               color="text.primary"
-              href="#"
+              href="https://wallet.myalgo.com/new-account"
               underline='hover'
               sx={{ my: 1, mx: 1.5 }}
             >

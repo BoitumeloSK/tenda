@@ -11,8 +11,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
-import TextField from '@mui/material/TextField';
-import * as React from 'react';
+import { DataGrid } from '@mui/x-data-grid';
 import Box from '@mui/material/Box';
 
 function Copyright(props) {
@@ -55,9 +54,44 @@ const footers = [
 
 const defaultTheme = createTheme();
 
+const columns = [
+    { field: 'id', headerName: 'ID', width: 90 },
+    {
+      field: 'companyName',
+      headerName: 'Company name',
+      width: 150,
+      editable: false,
+    },
+   
+    {
+      field: 'rate',
+      headerName: 'Price',
+      type: 'number',
+      width: 110,
+      editable: false,
+    },
+    {
+        field: 'Description',
+        headerName: 'Description',
+        width: 250,
+        editable: false,
+      },
+  ];  
+
+  const rows = [
+    { id: 1, companyName: 'Dorys', rate: 430, Description: 'Fast and cheap service' },
+    { id: 2, companyName: 'Hackathon', rate: 420, Description: 'Quick and reliable service' },
+    { id: 3, companyName: 'Winnies', rate: 450, Description: 'affordable and best service' },
+    { id: 4, companyName: 'Uzuntu Dec', rate: 600, Description: 'Guarenteed quality service'  },
+    { id: 5, companyName: 'load shedders', rate: 480, Description: 'Quick and efficient servicing' },
+    { id: 6, companyName: 'monsters', rate: 480, Description: 'fast' },
+    { id: 7, companyName: 'Bidconnect', rate: 440, Description: 'low price and quality servicing' },
+    { id: 8, companyName: 'Tenderspot', rate: 450, Description: 'reliable' },
+    { id: 9, companyName: 'Tenderwise', rate: 480, Description: 'good service'},
+  ];
 
 
-export default function Quotationcreate() {
+export default function Quotationlist() {
     return (
         <ThemeProvider theme={defaultTheme}>
         <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
@@ -125,11 +159,13 @@ export default function Quotationcreate() {
               </Link>
               
             </nav>
+            <Button href="/login" variant="contained" sx={{ my: 1, mx: 2.5 }}>
+              Login
+            </Button>
           </Toolbar>
         </AppBar>
         {/* Main */}
-       
-    <React.Fragment>
+
         <Container disableGutters maxWidth="sm" component="main" sx={{ pt:8, pb: 12 }}>
         <Typography
           component="h1"
@@ -138,61 +174,35 @@ export default function Quotationcreate() {
           color="text.primary"
           gutterBottom
         >
-          Quotation
+          Quotation list 
         </Typography>
-      </Container>
 
-      <Box sx={{ height: '1rem' }} />
+        <Box sx={{ height: 400, width: '100%' }}>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: {
+              pageSize: 5,
+            },
+          },
+        }}
+        pageSizeOptions={[5]}
+        checkboxSelection
+        disableRowSelectionOnClick
+      />
+    </Box>
 
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="fromWhom"
-            name="fromWhom"
-            label="From Whom"
-            fullWidth
-            autoComplete="given-name"
-            variant="outlined"
-          />
-         </Grid>
-         
-         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="rate"
-            name="rate"
-            label="Price of service"
-            fullWidth
-            variant="outlined"
-          />
-         </Grid>
-         <Grid item xs={12} sm={6} >
-          <TextField
-            required
-            id="description"
-            name="description"
-            label="Description of service required"
-            fullWidth
-            autoComplete="description"
-            variant="outlined"
-            multiline rows={6}
-          />
-        </Grid>
-
-         <Box sx={{ height: '14rem' }} />
-
-    </Grid>
+    <Box sx={{ height: '3rem' }} />
 
     <Stack spacing={2} direction="row">
       <Button variant="outlined" href="/">back</Button>
-      <Button variant="contained" href="/quotationview">Confirm</Button>
+      <Button variant="contained" href="/Quotationview">Confirm</Button>
     </Stack>
-     
-</React.Fragment>
 
 
-
+        </Container>
         <Container
         maxWidth="md"
         component="footer"
@@ -222,7 +232,6 @@ export default function Quotationcreate() {
         </Grid>
         <Copyright sx={{ mt: 5 }} />
       </Container>
-    
         
      </ThemeProvider>
     )

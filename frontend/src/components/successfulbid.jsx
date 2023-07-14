@@ -11,8 +11,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
-import TextField from '@mui/material/TextField';
-import * as React from 'react';
+import CardActions from '@mui/material/CardActions';
 import Box from '@mui/material/Box';
 
 function Copyright(props) {
@@ -57,7 +56,7 @@ const defaultTheme = createTheme();
 
 
 
-export default function Quotationcreate() {
+export default function Successfulbid() {
     return (
         <ThemeProvider theme={defaultTheme}>
         <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
@@ -125,11 +124,13 @@ export default function Quotationcreate() {
               </Link>
               
             </nav>
+            <Button href="/login" variant="contained" sx={{ my: 1, mx: 2.5 }}>
+              Login
+            </Button>
           </Toolbar>
         </AppBar>
         {/* Main */}
-       
-    <React.Fragment>
+
         <Container disableGutters maxWidth="sm" component="main" sx={{ pt:8, pb: 12 }}>
         <Typography
           component="h1"
@@ -138,61 +139,19 @@ export default function Quotationcreate() {
           color="text.primary"
           gutterBottom
         >
-          Quotation
+          Thank You!
         </Typography>
+        <Typography variant="h5" align="center" color="text.secondary" component="p">
+        Your order is successful!
+        </Typography>
+
+        <Box sx={{ height: '5rem' }} />
+        
+        <CardActions>
+        <Button size="medium" href ="/Services">Back to Browse</Button>
+        <Button size="medium" href ="#">Track Order</Button>
+      </CardActions>
       </Container>
-
-      <Box sx={{ height: '1rem' }} />
-
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="fromWhom"
-            name="fromWhom"
-            label="From Whom"
-            fullWidth
-            autoComplete="given-name"
-            variant="outlined"
-          />
-         </Grid>
-         
-         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="rate"
-            name="rate"
-            label="Price of service"
-            fullWidth
-            variant="outlined"
-          />
-         </Grid>
-         <Grid item xs={12} sm={6} >
-          <TextField
-            required
-            id="description"
-            name="description"
-            label="Description of service required"
-            fullWidth
-            autoComplete="description"
-            variant="outlined"
-            multiline rows={6}
-          />
-        </Grid>
-
-         <Box sx={{ height: '14rem' }} />
-
-    </Grid>
-
-    <Stack spacing={2} direction="row">
-      <Button variant="outlined" href="/">back</Button>
-      <Button variant="contained" href="/quotationview">Confirm</Button>
-    </Stack>
-     
-</React.Fragment>
-
-
-
         <Container
         maxWidth="md"
         component="footer"
@@ -222,7 +181,6 @@ export default function Quotationcreate() {
         </Grid>
         <Copyright sx={{ mt: 5 }} />
       </Container>
-    
         
      </ThemeProvider>
     )

@@ -11,9 +11,12 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
-import TextField from '@mui/material/TextField';
-import * as React from 'react';
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+
 
 function Copyright(props) {
     return (
@@ -57,7 +60,7 @@ const defaultTheme = createTheme();
 
 
 
-export default function Quotationcreate() {
+export default function Servicequotationview() {
     return (
         <ThemeProvider theme={defaultTheme}>
         <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
@@ -125,11 +128,14 @@ export default function Quotationcreate() {
               </Link>
               
             </nav>
+            <Button href="/login" variant="contained" sx={{ my: 1, mx: 2.5 }}>
+              Login
+            </Button>
           </Toolbar>
         </AppBar>
-        {/* Main */}
        
-    <React.Fragment>
+        {/* Main */}
+
         <Container disableGutters maxWidth="sm" component="main" sx={{ pt:8, pb: 12 }}>
         <Typography
           component="h1"
@@ -138,60 +144,82 @@ export default function Quotationcreate() {
           color="text.primary"
           gutterBottom
         >
-          Quotation
+          Quotation view 
         </Typography>
-      </Container>
+        <Box sx={{ height: '1rem' }} />
 
-      <Box sx={{ height: '1rem' }} />
+        <Card sx={{ maxWidth: 1000 }}>
+      <CardMedia
+        component="img"
+        alt="service provider image"
+        height="140"
+        image="/static/images/cards/contemplative-reptile.jpg"
+      />
+      <CardContent>
+      <Typography gutterBottom variant="h6" component="div">
+          To whom:
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          To whom the service will be provided for
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          From Whom:
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Who is the service provider
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          Service Type:
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          The type of service being offered
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          Description:
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Description of service offering
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          Location
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Location of service offering
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          Price:
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Proposed price of service 
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          Service Date:
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Date in which service is booked
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          Additional notes:
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Any additional notes made by user or service provider
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          Quotation Date:
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Date in which quotation is made
+        </Typography>
+        
 
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="fromWhom"
-            name="fromWhom"
-            label="From Whom"
-            fullWidth
-            autoComplete="given-name"
-            variant="outlined"
-          />
-         </Grid>
-         
-         <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="rate"
-            name="rate"
-            label="Price of service"
-            fullWidth
-            variant="outlined"
-          />
-         </Grid>
-         <Grid item xs={12} sm={6} >
-          <TextField
-            required
-            id="description"
-            name="description"
-            label="Description of service required"
-            fullWidth
-            autoComplete="description"
-            variant="outlined"
-            multiline rows={6}
-          />
-        </Grid>
+      </CardContent>
+      <CardActions>
+        <Button size="medium" href ="/Services">Back to Browse</Button>
+        <Button size="medium" href ="/successfulbid">Confirm request</Button>
+      </CardActions>
+    </Card>
 
-         <Box sx={{ height: '14rem' }} />
-
-    </Grid>
-
-    <Stack spacing={2} direction="row">
-      <Button variant="outlined" href="/">back</Button>
-      <Button variant="contained" href="/quotationview">Confirm</Button>
-    </Stack>
-     
-</React.Fragment>
-
-
+        </Container>
 
         <Container
         maxWidth="md"
@@ -222,7 +250,6 @@ export default function Quotationcreate() {
         </Grid>
         <Copyright sx={{ mt: 5 }} />
       </Container>
-    
         
      </ThemeProvider>
     )

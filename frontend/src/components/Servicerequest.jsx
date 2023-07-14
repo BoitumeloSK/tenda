@@ -58,7 +58,7 @@ const footers = [
   },
 ];
 
-export default function Bookings() {
+export default function Servicerequest() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
@@ -133,7 +133,7 @@ export default function Bookings() {
 
     <React.Fragment>
       <Typography variant="h5" gutterBottom>
-        Booking information 
+        Service Request information 
       </Typography>
       <Box sx={{ height: '1rem' }} />
 
@@ -141,85 +141,32 @@ export default function Bookings() {
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="firstName"
-            name="firstName"
-            label="First name"
+            id="title"
+            name="title"
+            label="Title of service"
             fullWidth
             autoComplete="given-name"
             variant="outlined"
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="lastName"
-            name="lastName"
-            label="Last name"
+            id="price"
+            name="price"
+            label="Price"
             fullWidth
-            autoComplete="family-name"
             variant="outlined"
           />
         </Grid>
         <Grid item xs={12}>
           <TextField
             required
-            id="address1"
-            name="address1"
-            label="Address line 1"
+            id="location"
+            name="location"
+            label="Location"
             fullWidth
             autoComplete="shipping address-line1"
-            variant="outlined"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            id="address2"
-            name="address2"
-            label="Address line 2"
-            fullWidth
-            autoComplete="shipping address-line2"
-            variant="outlined"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="city"
-            name="city"
-            label="City"
-            fullWidth
-            autoComplete="shipping address-level2"
-            variant="outlined"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            id="state"
-            name="state"
-            label="State/Province/Region"
-            fullWidth
-            variant="outlined"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="zip"
-            name="zip"
-            label="Zip / Postal code"
-            fullWidth
-            autoComplete="shipping postal-code"
-            variant="outlined"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="country"
-            name="country"
-            label="Country"
-            fullWidth
-            autoComplete="shipping country"
             variant="outlined"
           />
         </Grid>
@@ -253,7 +200,7 @@ export default function Bookings() {
             required
             id="servicetype"
             name="servicetype"
-            label="Service type (choose one from list above)"
+            label="Service type (choose one from dropdown list)"
             fullWidth
             variant="outlined"
           />
@@ -263,7 +210,7 @@ export default function Bookings() {
             required
             id="servicedate"
             name="servicedate"
-            label="Date (YYYY-MM-DD)"
+            label="Date of service (YYYY-MM-DD)"
             fullWidth
             autoComplete="date"
             variant="outlined"
@@ -287,7 +234,7 @@ export default function Bookings() {
 
     <Stack spacing={2} direction="row">
       <Button variant="outlined" href="/">back</Button>
-      <Button variant="contained" href="/quotation">Confirm</Button>
+      <Button variant="contained" href="/Quotationlist">Confirm</Button>
     </Stack>
     </React.Fragment>
     <Container
