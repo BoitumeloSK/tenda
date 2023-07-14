@@ -34,7 +34,7 @@ const Quotation = sequelize.define(
 			type: DataTypes.DATEONLY,
 		},
 		quotationDate: {
-			type: DataTypes.DATEONLY,
+			type: DataTypes.DATE,
 			defaultValue: DataTypes.NOW,
 		},
 		serviceType: {
