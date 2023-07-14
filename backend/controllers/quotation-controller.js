@@ -95,7 +95,7 @@ function createQuotation(req, res) {
 			serviceType: data[0].serviceType,
 			location: data[0].location,
 			serviceDate: data[0].serviceDate,
-			serviceType: data[0].serviceType,
+			//quotationDate: data[0].
 			description: data[0].description,
 			addtionalNotes,
 			rate,

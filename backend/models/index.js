@@ -1,8 +1,8 @@
-const User = require("./User");
-const Request = require("./Request");
-const Comment = require("./Comment");
-const Reply = require("./Reply");
-const Quotation = require("./Quotation");
+const User = require("./User.js");
+const Request = require("./Request.js");
+const Comment = require("./Comment.js");
+const Reply = require("./Reply.js");
+const Quotation = require("./Quotation.js");
 
 Request.belongsTo(User, { foreignKey: "UserId" });
 User.hasMany(Request, { foreignKey: "UserId" });
