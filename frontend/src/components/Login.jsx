@@ -88,6 +88,7 @@ export default function login() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              href="/"
             >
               Sign In
             </Button>
