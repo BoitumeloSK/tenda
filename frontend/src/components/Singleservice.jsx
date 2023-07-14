@@ -1,34 +1,35 @@
-import * as React from 'react';
-import Typography from '@mui/material/Typography';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import {Link} from "react-router-dom";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import {Link as Routerlink} from "react-router-dom";
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Link from '@mui/material/Link';
 
 function Copyright(props) {
     return (
       <Typography variant="body2" color="text.secondary" align="center" {...props}>
         {'Copyright © '}
-        <Link color="inherit" to="/">
+        <Routerlink color="inherit" to="/">
           UbuntuTech
-        </Link>{' '}
+        </Routerlink>{' '}
         {new Date().getFullYear()}
         {'.'}
       </Typography>
     );
   }
 
-  const footers = [
+const footers = [
     {
       title: 'Company',
       description: ['Team', 'History', 'Contact us', 'Locations'],
@@ -55,43 +56,9 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-const service = [
-  {
-    name: 'Main Service',
-    desc: 'A description of service required',
-    price: '232,19 ALGO',
-  },
-  {
-    name: 'Additional service',
-    desc: 'Additional service request',
-    price: '69,65 ALGO',
-  },
-  {
-    name: 'Additional service',
-    desc: 'Additional specific requirement',
-    price: '32,50 ALGO',
-  },
-  {
-    name: 'Network cost',
-    desc: '',
-    price: '16,71 ALGO',
-  },
-  
-  { name: 'Service Delivery', desc: '', price: 'Free' },
-];
 
-const addressfrom = ['2 hackathon Road', 'winnerville', 'Pretoria', 'Gauteng', '0342', 'South Africa'];
-const addressto = ['1 UCT Drive', 'Hackaville', 'Cape Town', 'Western Cape', '0234', 'South Africa'];
-const payments = [
-  { name: 'Address', detail: 'hb45JJ8Bgs91djkw86VBdbbj2' },
-  { name: 'Amount to pay', detail: '583,05 ALGO ' },
-  { name: '', detail: '= R1255,38' },
-  { name: 'Service date', detail: '14/07/2023' },
-];
-
-export default function Quotation() {
-  return (
-    <React.Fragment>
+export default function Singleservice() {
+    return (
         <ThemeProvider theme={defaultTheme}>
         <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
         <CssBaseline />
@@ -102,10 +69,13 @@ export default function Quotation() {
           sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
         >
           <Toolbar sx={{ flexWrap: 'wrap' }}>
+            <Stack direction="row" spacing={2}>
+              <Avatar alt="Plogo" src="./Plogo.png" />
+            </Stack>
             <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
             <Button href="/" variant="text" color="inherit" sx={{ my: 1, mx: 2.5 }}>
-            Procurelink
-          </Button>
+              Procurelink
+            </Button>
             </Typography>
             <nav>
               <Link
@@ -155,70 +125,78 @@ export default function Quotation() {
               </Link>
               
             </nav>
-            
           </Toolbar>
         </AppBar>
+        {/* main */}
+       <Container disableGutters maxWidth="sm" component="main" sx={{ pt:8, pb: 12 }}>
+        <Typography
+          component="h1"
+          variant="h4"
+          align="center"
+          color="text.primary"
+          gutterBottom
+        >
+          Service Requested
+        </Typography>
+        
+      </Container>
 
-        <Box sx={{ height: '2rem' }} />
+    <Card sx={{ maxWidth: 1000 }}>
+      <CardMedia
+        component="img"
+        alt="green iguana"
+        height="140"
+        image="/static/images/cards/contemplative-reptile.jpg"
+      />
+      <CardContent>
+      <Typography gutterBottom variant="h6" component="div">
+          Title:
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Brief title of service offering
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          Service Type:
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Type of service offered
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          Description:
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Description of service offering
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          Location:
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Location of service offering
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          Price:
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Proposed price of service 
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          Service Date:
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Date in which service is booked
+        </Typography>
 
-      <Typography variant="h5" gutterBottom>
-        Order summary
-      </Typography>
-      <List disablePadding>
-        {service.map((service) => (
-          <ListItem key={service.name} sx={{ py: 1, px: 0 }}>
-            <ListItemText primary={service.name} secondary={service.desc} />
-            <Typography variant="body2">{service.price}</Typography>
-          </ListItem>
-        ))}
-        <ListItem sx={{ py: 1, px: 0 }}>
-          <ListItemText primary="Total" />
-          <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            583,05 ALGO
-          </Typography>
-        </ListItem>
-      </List>
-      <Grid container spacing={2}>
-      <Grid item xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Service from
-          </Typography>
-          <Typography gutterBottom>Service Provider company name</Typography>
-          <Typography gutterBottom>{addressfrom.join(', ')}</Typography>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Service to
-          </Typography>
-          <Typography gutterBottom>John Smith</Typography>
-          <Typography gutterBottom>{addressto.join(', ')}</Typography>
-        </Grid>
-        <Grid item container direction="column" xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
-            Payment details
-          </Typography>
-          <Grid container>
-            {payments.map((payment) => (
-              <React.Fragment key={payment.name}>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.name}</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.detail}</Typography>
-                </Grid>
-             
-              </React.Fragment>
-            ))}
-          </Grid>
-        </Grid>
-      </Grid>   
-      <Box sx={{ height: '2rem' }} />
-    <Stack spacing={2} direction="row">
-      <Button variant="outlined" href="/bookings">back</Button>
-      <Button variant="contained" href="#">Confirm</Button>
-    </Stack>
-    </ThemeProvider>
-    <Container
+      </CardContent>
+      <CardActions>
+        <Button size="medium" href ="/Services">Back to Browse</Button>
+        <Button size="medium" href ="#">Confirm request</Button>
+      </CardActions>
+    </Card>
+
+
+
+
+        <Container
         maxWidth="md"
         component="footer"
         sx={{
@@ -247,7 +225,7 @@ export default function Quotation() {
         </Grid>
         <Copyright sx={{ mt: 5 }} />
       </Container>
-  </React.Fragment>
-  
-  );
+        
+     </ThemeProvider>
+    )
 }

@@ -30,13 +30,37 @@ function Copyright() {
 		</Typography>
 	);
 }
+const footers = [
+  {
+    title: 'Company',
+    description: ['Team', 'History', 'Contact us', 'Locations'],
+  },
+  {
+    title: 'Features',
+    description: [
+      'Cool stuff',
+      'Random feature',
+      'Team feature',
+      'Developer stuff',
+      'Another one',
+    ],
+  },
+  {
+    title: 'Resources',
+    description: ['Resource', 'Resource name', 'Another resource', 'Final resource'],
+  },
+  {
+    title: 'Legal',
+    description: ['Privacy policy', 'Terms of use'],
+  },
+];
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function Services() {
+
 	const [services, setServices] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 	useEffect(() => {
@@ -218,3 +242,4 @@ export default function Services() {
 		</ThemeProvider>
 	);
 }
+
