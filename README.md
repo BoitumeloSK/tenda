@@ -9,3 +9,6 @@
 8. Once the server is running, access the application locally, such as by visiting http://localhost:3000 in a web browser.
 9. Enjoy the experience of navigating through Procurelink
  
+
+
+NOTE: there are three branches. Please ensure you do not use the 'master branch' and use the 'Keba branch' as it is the most updated version with all the pages to the application.
