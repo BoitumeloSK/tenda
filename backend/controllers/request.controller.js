@@ -72,7 +72,7 @@ function getUserRequests(req, res) {
 }
 
 function createRequest(req, res) {
-	const { serviceType, description, image, price } = req.body;
+	const { serviceType, description, title, image, price } = req.body;
 	const { userId } = JWT.verify(req.cookies.access_token, process.env.SECRET);
 	Request.findAll({ where: { description, UserId: userId } }).then((data) => {
 		if (data.length > 0) {
@@ -86,7 +86,7 @@ function createRequest(req, res) {
 			description,
 			image,
 			price,
-			visible,
+			title,
 			UserId: userId,
 		})
 			.then((data) => {

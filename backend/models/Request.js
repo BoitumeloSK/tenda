@@ -15,6 +15,9 @@ const Request = sequelize.define(
 		serviceType: {
 			type: DataTypes.STRING,
 		},
+		title: {
+			type: DataTypes.STRING,
+		},
 		description: {
 			type: DataTypes.STRING,
 		},
@@ -32,7 +35,7 @@ const Request = sequelize.define(
 		},
 		visible: {
 			type: DataTypes.BOOLEAN,
-			defaultValue: false,
+			defaultValue: true,
 		},
 		serviceComplete: {
 			type: DataTypes.BOOLEAN,
