@@ -1,6 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/config");
-const User = require("./User");
+const User = require("./User.js");
 const Request = sequelize.define(
 	"Request",
 	{
@@ -13,6 +13,9 @@ const Request = sequelize.define(
 			allowNull: false,
 		},
 		serviceType: {
+			type: DataTypes.STRING,
+		},
+		title: {
 			type: DataTypes.STRING,
 		},
 		description: {
@@ -32,7 +35,7 @@ const Request = sequelize.define(
 		},
 		visible: {
 			type: DataTypes.BOOLEAN,
-			defaultValue: false,
+			defaultValue: true,
 		},
 		serviceComplete: {
 			type: DataTypes.BOOLEAN,

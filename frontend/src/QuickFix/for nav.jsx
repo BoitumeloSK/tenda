@@ -1,3 +1,4 @@
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,7 +11,6 @@ import Button from '@mui/material/Button';
 
 
 const defaultTheme = createTheme();
-
 
 export default function Home() {
     return (
@@ -89,3 +89,4 @@ export default function Home() {
      </ThemeProvider>
     )
 }
+
