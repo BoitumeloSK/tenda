@@ -15,8 +15,47 @@ import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import {Link} from "react-router-dom";
+import Container from '@mui/material/Container';
 
 const defaultTheme = createTheme();
+
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" to="/">
+        UbuntuTech
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
+const footers = [
+  {
+    title: 'Company',
+    description: ['Team', 'History', 'Contact us', 'Locations'],
+  },
+  {
+    title: 'Features',
+    description: [
+      'Cool stuff',
+      'Random feature',
+      'Team feature',
+      'Developer stuff',
+      'Another one',
+    ],
+  },
+  {
+    title: 'Resources',
+    description: ['Resource', 'Resource name', 'Another resource', 'Final resource'],
+  },
+  {
+    title: 'Legal',
+    description: ['Privacy policy', 'Terms of use'],
+  },
+];
 
 export default function Booking() {
   return (
@@ -30,7 +69,7 @@ export default function Booking() {
         sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
       >
         <Toolbar sx={{ flexWrap: 'wrap' }}>
-          <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" color="inherit" href="/" noWrap sx={{ flexGrow: 1 }}>
             ProcureLink
           </Typography>
           <nav>
@@ -86,10 +125,15 @@ export default function Booking() {
           </Button>
         </Toolbar>
       </AppBar>
+
+      <Box sx={{ height: '2rem' }} />
+
     <React.Fragment>
       <Typography variant="h5" gutterBottom>
         Booking information 
       </Typography>
+      <Box sx={{ height: '1rem' }} />
+
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
@@ -245,6 +289,35 @@ export default function Booking() {
       <Button variant="contained" href="/quotation">Confirm</Button>
     </Stack>
     </React.Fragment>
+    <Container
+        maxWidth="md"
+        component="footer"
+        sx={{
+          borderTop: (theme) => `1px solid ${theme.palette.divider}`,
+          mt: 8,
+          py: [3, 6],
+        }}
+      >
+        <Grid container spacing={4} justifyContent="space-evenly">
+          {footers.map((footer) => (
+            <Grid item xs={6} sm={3} key={footer.title}>
+              <Typography variant="h6" color="text.primary" gutterBottom>
+                {footer.title}
+              </Typography>
+              <ul>
+                {footer.description.map((item) => (
+                  <li key={item}>
+                    <Link href="#" variant="subtitle1" color="text.secondary">
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Grid>
+          ))}
+        </Grid>
+        <Copyright sx={{ mt: 5 }} />
+      </Container>
     </ThemeProvider>
 
   );

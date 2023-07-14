@@ -15,6 +15,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import GlobalStyles from '@mui/material/GlobalStyles';
+
+
 
 function Copyright() {
   return (
@@ -44,6 +47,54 @@ export default function Services() {
           <Typography variant="h6" color="default" noWrap>
             Procurelink Services
           </Typography>
+          <nav>
+              <Link
+                variant="button"
+                color="text.primary"
+                href="/services"
+                underline='hover'
+                sx={{ my: 1, mx: 1.5 }}
+              >
+                Services
+              </Link>
+              <Link
+                variant="button"
+                color="text.primary"
+                href="./Bookings"
+                underline='hover'
+                sx={{ my: 1, mx: 1.5 }}
+              >
+                Booking
+              </Link>
+              <Link
+                variant="button"
+                color="text.primary"
+                href="#"
+                underline='hover'
+                sx={{ my: 1, mx: 1.5 }}
+              >
+                Wallet
+              </Link>
+              <Link
+                variant="button"
+                color="text.primary"
+                href="#"
+                underline='hover'
+                sx={{ my: 1, mx: 1.5 }}
+              >
+                Profile
+              </Link>
+              <Link
+                variant="button"
+                color="text.primary"
+                href="#"
+                underline='hover'
+                sx={{ my: 1, mx: 1.5 }}
+              >
+                Support
+              </Link>
+              
+            </nav>
         </Toolbar>
       </AppBar>
       <main>
