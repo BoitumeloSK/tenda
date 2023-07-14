@@ -116,9 +116,9 @@ sequelize.sync({ force: false }).then(async () => {
 		},
 		{
 			UserId: 1,
-			ImageUrl:
+			image:
 				"https://res.cloudinary.com/dhrftaik2/image/upload/v1663426647/photo_fixtap_oehjzp.jpg",
-			service: "plumbing",
+			serviceType: "plumbing",
 			title: "Water flowing after closing tap",
 			description:
 				"The tap in my main bedroom sink is damaged and the water continues to flow out at a steady rate even when the tap is closed tightly.",
